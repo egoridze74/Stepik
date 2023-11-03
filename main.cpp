@@ -1,11 +1,8 @@
 #include <iostream>
-#include <stdlib.h>
-
 using namespace std;
-
 int main()
 {
-    int n, m, k, mesta = 0, row = 0;
+    int n, m;
     cin >> n >> m;
     int matrix[n][m];
     for (int i = 0; i < n; i++)
@@ -13,27 +10,11 @@ int main()
         for (int j = 0; j < m; j++)
             cin >> matrix[i][j];
     }
-    cin >> k;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < m; i++)
     {
-        int p = 0;
-        for (int j = 0; j < m; j++)
-        {
-            if (matrix[i][j] == 1)
-            {
-                mesta = max(mesta, p);
-                p = 0;
-            }
-            else
-                p++;
-        }
-        mesta = max(mesta, p);
-        if (mesta >= k)
-        {
-            row = i + 1;
-            break;
-        }
+        for (int j = n - 1; j >= 0; j--)
+            cout << matrix[j][i] << ' ';
+        cout << '\n';
     }
-    cout << row;
     return 0;
 }
