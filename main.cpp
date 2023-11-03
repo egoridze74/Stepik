@@ -18,5 +18,6 @@ int main()
             cout << matrix[j][i] << ' ';
         cout << '\n';
     }
+    cout << "kek";
     return 0;
 }
