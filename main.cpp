@@ -6,16 +6,12 @@ int main()
     int n, m, s = 1;
     cin >> n >> m;
     int matrix[n][m];
-    for (int k = 0; k < n + m - 1; k++) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++)
-                if (i + j == k)
-                    matrix[i][j] = s++;
-        }
-    }
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++)
-            cout << setw(4) << matrix[i][j];
+        for (int j = 0; j < m; j++) {
+            if ((i + j) % 2 == 0)
+                cout << setw(4) << s++;
+            else cout << setw(4) << "0";
+        }
         cout << "\n";
     }
     return 0;
