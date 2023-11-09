@@ -1,21 +1,16 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
-int min(int a, int b) {
-    if (a <= b)
-        return a;
-    return b;
-}
-
-int min4(int a, int b, int c, int d) {
-    return min(min(a, b), min(c, d));
+float distance(float x1, float y1, float x2, float y2) {
+    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
 }
 
 int main()
 {
-    int a, b, c, d;
+    float a, b, c, d;
     cin >> a >> b >> c >> d;
-    cout << min4(a, b, c, d);
+    cout << distance(a, b, c, d);
     return 0;
 }
