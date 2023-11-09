@@ -1,18 +1,38 @@
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
-int main()
-{
-    int n, m, s = 1;
+
+int main() {
+    int n, m;
     cin >> n >> m;
     int matrix[n][m];
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            if ((i + j) % 2 == 0)
-                cout << setw(4) << s++;
-            else cout << setw(4) << "0";
+
+    int Up = 0, Down = 0, Left = 0, Right = 0;
+
+    int k = 1, i = 0, j = 0;
+
+    while (k <= n * m) {
+        matrix[i][j] = k;
+        if (i == Up && j < m - Right - 1)
+            ++j;
+        else if (j == m - Right - 1 && i < n - Down - 1)
+            ++i;
+        else if (i == n - Down - 1 && j > Left)
+            --j;
+        else
+            --i;
+        if ((i == Up + 1) && (j == Left) && (Left != m - Right - 1)) {
+            ++Up;
+            ++Down;
+            ++Right;
+            ++Left;
         }
-        cout << "\n";
+        ++k;
     }
-    return 0;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++)
+            cout << setw(4) << matrix[i][j];
+        cout << '\n';
+    }
 }
