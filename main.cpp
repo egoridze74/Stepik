@@ -2,21 +2,20 @@
 
 using namespace std;
 
+int min(int a, int b) {
+    if (a <= b)
+        return a;
+    return b;
+}
+
+int min4(int a, int b, int c, int d) {
+    return min(min(a, b), min(c, d));
+}
+
 int main()
 {
-    int n, m;
-    cin >> n >> m;
-    int matrix[n][n];
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-            cin >> matrix[i][j];
-    }
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-            cout << matrix[j][i] << ' ';
-        cout << '\n';
-    }
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    cout << min4(a, b, c, d);
     return 0;
 }
