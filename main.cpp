@@ -3,16 +3,16 @@
 
 using namespace std;
 
-bool IsPointInSquare(float x, float y) {
-    return (abs(x) + abs(y)) <= 1;
+bool IsPointInCircle(float x, float y, float xc, float yc, float r) {
+    return (pow(x - xc, 2) + pow(y - yc, 2)) <= pow(r, 2);
 }
 
 int main()
 {
-    float x, y;
+    float x, y, xc, yc, r;
     bool k;
-    cin >> x >> y;
-    k = IsPointInSquare(x, y);
+    cin >> x >> y >> xc >> yc >> r;
+    k = IsPointInCircle(x, y, xc, yc, r);
     if (k)
         cout << "YES";
     else
