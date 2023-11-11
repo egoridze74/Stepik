@@ -3,14 +3,19 @@
 
 using namespace std;
 
-float distance(float x1, float y1, float x2, float y2) {
-    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+bool IsPointInSquare(float x, float y) {
+    return abs(x) <= 1 && abs(y) <= 1;
 }
 
 int main()
 {
-    float a, b, c, d;
-    cin >> a >> b >> c >> d;
-    cout << distance(a, b, c, d);
+    float x, y;
+    bool k;
+    cin >> x >> y;
+    k = IsPointInSquare(x, y);
+    if (k == true)
+        cout << "YES";
+    else
+        cout << "NO";
     return 0;
 }
