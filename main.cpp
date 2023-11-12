@@ -3,21 +3,19 @@
 
 using namespace std;
 
-float power(long double a, long int n) {
-    if (n == 0)
-        return 1;
-    if (n < 0)
-        return 1 / a * power(a, n + 1);
-    else
-        return a * power(a, n - 1);
-
+long int MinDivisor(long int n)
+{
+    double m = n;
+    for (long int i = ceil(sqrt(n)); i >= 2; --i)
+        if (n % i == 0)
+            m = i;
+    return m;
 }
 
 int main()
 {
-    long double a;
     long int n;
-    cin >> a >> n;
-    cout << power(a, n);
+    cin >> n;
+    cout << MinDivisor(n);
     return 0;
 }
