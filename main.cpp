@@ -3,20 +3,21 @@
 
 using namespace std;
 
-bool IsPointInArea(float x, float y) {
-    return (pow(x + 1, 2) + pow(y - 1, 2) <= 4) && (y >= -x && y >= 2 * (x + 1)) ||
-    (pow(x + 1, 2) + pow(y - 1, 2) >= 4) && (y <= -x && y <= 2 * (x + 1));
+float power(long double a, long int n) {
+    if (n == 0)
+        return 1;
+    if (n < 0)
+        return 1 / a * power(a, n + 1);
+    else
+        return a * power(a, n - 1);
+
 }
 
 int main()
 {
-    float x, y;
-    bool k;
-    cin >> x >> y;
-    k = IsPointInArea(x, y);
-    if (k)
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
+    long double a;
+    long int n;
+    cin >> a >> n;
+    cout << power(a, n);
     return 0;
 }
