@@ -3,24 +3,21 @@
 
 using namespace std;
 
-long int IsPrime(long int n)
+long double power(double a, int n)
 {
-    double m = n;
-    for (long int i = ceil(sqrt(n)); i >= 2; --i)
-        if (n % i == 0) {
-            m = i;
-            break;
-        }
-    return m == n;
+    if (n == 0)
+        return 1;
+    if (n % 2 == 0)
+        return power(a * a, n / 2);
+    else
+        return a * power(a, n - 1);
 }
 
 int main()
 {
-    long int n;
-    cin >> n;
-    if (IsPrime(n))
-        cout << "YES";
-    else
-        cout << "NO";
+    double a;
+    int n;
+    cin >> a >> n;
+    cout << power(a, n);
     return 0;
 }
