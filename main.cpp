@@ -1,23 +1,18 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 using namespace std;
 
-long double power(double a, int n)
+int count_sum()
 {
-    if (n == 0)
-        return 1;
-    if (n % 2 == 0)
-        return power(a * a, n / 2);
-    else
-        return a * power(a, n - 1);
+    int n;
+    cin >> n;
+    return (n == 0 ? 0 : n + count_sum());
 }
 
 int main()
 {
-    double a;
-    int n;
-    cin >> a >> n;
-    cout << power(a, n);
+    cout << count_sum();
     return 0;
 }
