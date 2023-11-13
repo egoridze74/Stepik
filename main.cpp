@@ -4,15 +4,18 @@
 
 using namespace std;
 
-int count_sum()
+int fib(int n)
 {
-    int n;
-    cin >> n;
-    return (n == 0 ? 0 : n + count_sum());
+    if (n == 2 or n == 1)
+        return 1;
+    else
+        return fib(n -1) + fib(n - 2);
 }
 
 int main()
 {
-    cout << count_sum();
+    int n;
+    cin >> n;
+    cout << fib(n);
     return 0;
 }
