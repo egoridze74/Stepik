@@ -1,22 +1,14 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 int main()
 {
-    int n, m;
-    cin >> n >> m;
-    int matrix[n][n];
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-            cin >> matrix[i][j];
-    }
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-            cout << matrix[j][i] << ' ';
-        cout << '\n';
-    }
+    char c;
+    cin >> c;
+    if (c >= 'a' && c <= 'z')
+        c = c - 'a' + 'A';
+    cout << c;
     return 0;
 }
