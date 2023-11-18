@@ -1,20 +1,17 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
 int main() {
-    int flag = 1;
     string s;
     getline(cin, s);
-    int k = s.length();
-    for (int i = 0; i <= (k / 2 - 1); i++)
+    for (int i = 0, j = s.size() - 1; i <= j; i++, j--)
     {
-        if (s[i] != s[k - i - 1])
+        if(s[i] != s[j])
         {
-            flag = 0;
-            break;
+            cout << "no" << endl;
+            return 0;
         }
     }
-    cout << (flag == 1 ? "yes" : "no");
+    cout << "yes" << endl;
     return 0;
 }
