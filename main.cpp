@@ -9,7 +9,7 @@ int main()
     cin >> c;
     if (c >= 'a' && c <= 'z')
         c = c - 'a' + 'A';
-    else
+    else if (c >= 'A' && c <= 'Z')
         c = c + 'a' - 'A';
     cout << c;
     return 0;
