@@ -2,16 +2,21 @@
 #include <string>
 using namespace std;
 int main() {
-    string s;
+    string s, lngst = "", cur = "";
     getline(cin, s);
-    for (int i = 0, j = s.size() - 1; i <= j; i++, j--)
+    const int k = s.size();
+    for (int i = 0; i <= k; i++)
     {
-        if(s[i] != s[j])
+        char c = s[i];
+        if (c == ' ' or i == k)
         {
-            cout << "no" << endl;
-            return 0;
+            if (cur.size() > lngst.size())
+                lngst = cur;
+            cur = "";
         }
+        else
+            cur += c;
     }
-    cout << "yes" << endl;
+    cout << lngst << endl;
     return 0;
 }
