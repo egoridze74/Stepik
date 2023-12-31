@@ -1,22 +1,18 @@
 #include <iostream>
+#include <set>
 
 using namespace std;
 
-int main()
-{
-    int n, m;
-    cin >> n >> m;
-    int matrix[n][n];
+int main() {
+    set <int> s;
+    int n;
+    cin >> n;
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < m; j++)
-            cin >> matrix[i][j];
+        int x;
+        cin >> x;
+        s.insert(x);
     }
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-            cout << matrix[j][i] << ' ';
-        cout << '\n';
-    }
+    cout << s.size();
     return 0;
-}
+} 
