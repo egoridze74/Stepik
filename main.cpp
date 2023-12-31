@@ -11,8 +11,13 @@ int main() {
     {
         int x;
         cin >> x;
-        s.insert(x);
+        if (s.find(x) != s.end())
+            cout << "YES" << endl;
+        else
+        {
+            cout << "NO" << endl;
+            s.insert(x);
+        }
     }
-    cout << s.size();
     return 0;
 } 
