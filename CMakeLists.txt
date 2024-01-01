@@ -3,4 +3,5 @@ project(Stepik)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Stepik main.cpp)
+add_executable(Stepik main.cpp
+        test.cpp)

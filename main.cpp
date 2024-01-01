@@ -2,20 +2,23 @@
 #include <map>
 #include <string>
 #include <set>
-#include <vector>
 
 using namespace std;
 
 void token(string &str, set <string> &out)
 {
-    size_t start = str.find("-");
-    string ans = str.substr(start);
+    size_t start = str.find('-');
+    string trans = str.substr(start + 2);
     str = str.substr(0, start - 1);
-    while (size_t pos = ans.find(",") != ans.size())
+    size_t pos = trans.find(',');
+    while (pos != trans.npos)
     {
-        out.insert(ans.substr(0, pos));
-        ans = ans.substr(pos);
+        out.insert(trans.substr(0, pos));
+        trans = trans.substr(pos + 2);
+        pos = trans.find(',');
     }
+    out.insert(trans);
+
 }
 
 int main()
@@ -25,21 +28,20 @@ int main()
     cin >> n >> ws;
     for (int i = 0; i < n; i++)
     {
-        string stroka, eng_w;
+        string eng_w;
         set <string> lat_ws;
-        getline(cin, stroka);
+        getline(cin, eng_w);
         token(eng_w, lat_ws);
         dict[eng_w] = lat_ws;
     }
     for (auto now : dict) {
-        cout << now.first << " - ";
-        int count = 1;
+        cout << "Set: " << now.first << " - ";
+        int count = 0;
         for (auto it: now.second) {
-            if (count != now.second.size()) {
+            if (count++ != now.second.size())
+            {
                 cout << it << ", ";
-                count++;
             }
-
             cout << endl;
         }
     }
