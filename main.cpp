@@ -15,7 +15,6 @@ int main() {
     for (auto now : a) {
 
         cout << now << " ";
->>>>>>> Stashed changes
     }
     return 0;
 }
